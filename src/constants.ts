@@ -3,4 +3,4 @@ export const origin =
     ? "https://plants.10factory.com"
     : "http://localhost:3000";
 
-export const authEndpoint = `https://v0.trefle.io/api/auth/claim?token=${process.env.API_KEY}&origin="${origin}"`;
+export const authEndpoint = `https://trefle.io/api/auth/claim?token=${process.env.API_KEY}&origin="${origin}"`;

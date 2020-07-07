@@ -2,6 +2,7 @@ import Head from "next/head";
 import { GetServerSideProps } from "next";
 import nookies from "nookies";
 import axios from "axios";
+import { useQuery } from "react-query";
 
 import { origin } from "~/constants";
 
@@ -20,6 +21,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 interface HomeProps {}
 
 const Home = (_props: HomeProps) => {
+  const { data: kingdoms } = useQuery("kingdoms", async (_key) => {
+    const { token } = nookies.get(undefined);
+
+    const { data } = await axios.get(
+      `https://trefle.io/api/kingdoms?token=${token}`
+    );
+
+    return data;
+  });
+
+  console.log(kingdoms);
+
   return (
     <div className="container">
       <Head>
