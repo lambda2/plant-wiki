@@ -1,6 +1,25 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { GetServerSideProps } from "next";
+import nookies from "nookies";
+import axios from "axios";
 
-export default function Home() {
+import { origin } from "~/constants";
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const {
+    data: { token },
+  } = await axios.get(`${origin}/api/client-token`);
+
+  nookies.set(context, "token", token, {});
+
+  return {
+    props: {},
+  };
+};
+
+interface HomeProps {}
+
+const Home = (_props: HomeProps) => {
   return (
     <div className="container">
       <Head>
@@ -54,7 +73,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
@@ -205,5 +224,7 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
+
+export default Home;
