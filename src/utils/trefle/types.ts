@@ -1,3 +1,5 @@
+export type AllKingdoms = Omit<Kingdom, "link">[];
+
 export type Kingdom = {
   id: number;
   name: string;
@@ -5,6 +7,8 @@ export type Kingdom = {
   link: string;
   subkingdoms: Omit<Subkingdom, "divisions" | "kingdom">[];
 };
+
+export type AllSubkingdoms = Omit<Subkingdom, "divisions" | "kingdom">[];
 
 export type Subkingdom = {
   id: number;
