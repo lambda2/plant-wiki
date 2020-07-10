@@ -21,11 +21,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 interface HomeProps {}
 
 const Home = (_props: HomeProps) => {
-  const { data: kingdoms } = useQuery("kingdoms", async (_key) => {
+  const { data: kingdoms } = useQuery("subkingdoms", async (_key) => {
     const { token } = nookies.get(undefined);
 
     const { data } = await axios.get(
-      `https://trefle.io/api/kingdoms?token=${token}`
+      `https://trefle.io/api/subkingdoms/1?token=${token}`
     );
 
     return data;
