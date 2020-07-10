@@ -1,5 +1,5 @@
-import { useAllSubkingdoms } from "~/utils/trefle/hooks";
-import { AllSubkingdoms } from "~/utils/trefle/types";
+import { AllSubkingdoms } from "~/trefle";
+import { useAllSubkingdoms } from "~/trefle/hooks";
 
 const Loading = () => {
   return <div>loading...</div>;

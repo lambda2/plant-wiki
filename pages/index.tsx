@@ -1,21 +1,26 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 
-// Components
-import Subkingdoms from "~/components/Subkingdoms";
-
 // Utils
-import { initClientToken } from "~/utils/initClientToken";
+import { getAllPlants, AllPlants } from "~/trefle";
+import { getToken } from "~/utils/token";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  await initClientToken(context);
+  const token = await getToken(context);
+  const plants = await getAllPlants(token);
 
   return {
-    props: {},
+    props: {
+      plants,
+    },
   };
 };
 
-const Home = () => {
+interface HomeProps {
+  plants: AllPlants;
+}
+
+const Home = ({ plants }: HomeProps) => {
   return (
     <div className="container">
       <Head>
@@ -28,7 +33,12 @@ const Home = () => {
 
         <p className="description">Get started by browsing some Subkingdoms</p>
 
-        <Subkingdoms />
+        {plants.map((plant) => (
+          <div key={`Plant__${plant.slug}`}>
+            <span>{plant.common_name}</span>{" "}
+            <span>{plant.scientific_name}</span>
+          </div>
+        ))}
       </main>
 
       <style jsx global>{`
