@@ -1,10 +1,14 @@
 import Head from "next/head";
-import { css, keyframes } from "otion";
+import { keyframes } from "otion";
 
 import { useState } from "react";
 
-// Screens
+// Containers
 import Plants from "~/containers/Plants";
+
+// Components
+import Content from "~/components/Content";
+import Page from "~/components/Page";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";
@@ -19,23 +23,14 @@ const Home = () => {
   const [params, setParams] = useState<AllPlantsParams>();
 
   return (
-    <div className="container">
+    <Page>
       <Head>
         <title>Plant Wiki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1
-          className={css({
-            color: "green",
-            ":hover": {
-              animation: `${pulse} 1s infinite alternate`,
-            },
-          })}
-        >
-          Welcome to Plant Wiki
-        </h1>
+      <Content>
+        <h1>Welcome to Plant Wiki</h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
 
@@ -51,8 +46,8 @@ const Home = () => {
         />
 
         <Plants params={params} />
-      </main>
-    </div>
+      </Content>
+    </Page>
   );
 };
 

@@ -6,7 +6,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { setup } from "otion";
+import { setup, css } from "otion";
 import {
   filterOutUnusedRules,
   getStyleElement,

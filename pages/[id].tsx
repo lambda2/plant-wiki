@@ -1,24 +1,28 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-// Components
+// Container
 import Plant from "~/containers/Plant";
+
+// Components
+import Content from "~/components/Content";
+import Page from "~/components/Page";
 
 const SinglePlantPage = () => {
   const router = useRouter();
   const id = router.query.id as any;
 
   return (
-    <div className="container">
+    <Page>
       <Head>
         <title>Plant Wiki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <Content>
         <Plant id={id} />
-      </main>
-    </div>
+      </Content>
+    </Page>
   );
 };
 
