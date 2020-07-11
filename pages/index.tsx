@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/Link";
 import { GetServerSideProps } from "next";
 
 // Utils
@@ -34,10 +35,12 @@ const Home = ({ plants }: HomeProps) => {
         <p className="description">Get started by browsing some Subkingdoms</p>
 
         {plants.map((plant) => (
-          <div key={`Plant__${plant.slug}`}>
-            <span>{plant.common_name}</span>{" "}
-            <span>{plant.scientific_name}</span>
-          </div>
+          <Link key={`Plant__${plant.slug}`} href={`/${plant.id}`}>
+            <div>
+              <span>{plant.common_name}</span>{" "}
+              <span>{plant.scientific_name}</span>
+            </div>
+          </Link>
         ))}
       </main>
 

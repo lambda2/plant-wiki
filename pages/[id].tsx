@@ -31,7 +31,7 @@ const SinglePlantPage = ({ plant }: SinglePlantPageProps) => {
       </Head>
 
       <main>
-        <h1 className="title">{plant.common_name}</h1>
+        <h1 className="title">{plant.scientific_name}</h1>
       </main>
     </div>
   );
