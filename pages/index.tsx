@@ -1,9 +1,17 @@
 import Head from "next/head";
 
+import { useState } from "react";
+
 // Screens
 import Plants from "~/screens/Plants";
 
+// Trefle
+import { AllPlantsParams } from "~/trefle";
+
 const Home = () => {
+  const [search, setSearch] = useState("");
+  const [params, setParams] = useState<AllPlantsParams>();
+
   return (
     <div className="container">
       <Head>
@@ -12,7 +20,22 @@ const Home = () => {
       </Head>
 
       <main>
-        <Plants />
+        <h1 className="title">Welcome to Plant Wiki</h1>
+
+        <p className="description">Get started by browsing some Subkingdoms</p>
+
+        <input
+          type="text"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setParams({ q: search });
+            }
+          }}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <Plants params={params} />
       </main>
     </div>
   );

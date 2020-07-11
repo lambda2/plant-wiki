@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { AllPlants, AllPlantsParams } from "~/trefle";
 import { useAllPlants } from "~/trefle/hooks";
-import { useState, useMemo } from "react";
 
 const Loading = () => {
   return <div>loading...</div>;
@@ -23,32 +22,14 @@ const Data = ({ plants }: { plants: AllPlants }) => {
   );
 };
 
-const Plants = () => {
-  const [search, setSearch] = useState("");
-  const [params, setParams] = useState<AllPlantsParams>();
+interface PlantsProps {
+  params: AllPlantsParams;
+}
 
+const Plants = ({ params }: PlantsProps) => {
   const { plants } = useAllPlants(params);
 
-  return (
-    <div>
-      <h1 className="title">Welcome to Plant Wiki</h1>
-
-      <p className="description">Get started by browsing some Subkingdoms</p>
-
-      <input
-        type="text"
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            setParams({ q: search });
-          }
-        }}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      {plants ? <Data plants={plants} /> : <Loading />}
-    </div>
-  );
+  return <div>{plants ? <Data plants={plants} /> : <Loading />}</div>;
 };
 
 export default Plants;
