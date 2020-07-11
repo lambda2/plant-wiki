@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { css } from "otion";
+import { css, keyframes } from "otion";
 
 import { useState } from "react";
 
@@ -8,6 +8,11 @@ import Plants from "~/containers/Plants";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";
+
+const pulse = keyframes({
+  from: { opacity: 1 },
+  to: { opacity: 0 },
+});
 
 const Home = () => {
   const [search, setSearch] = useState("");
@@ -21,7 +26,16 @@ const Home = () => {
       </Head>
 
       <main>
-        <h1 className={css({ color: "green" })}>Welcome to Plant Wiki</h1>
+        <h1
+          className={css({
+            color: "green",
+            ":hover": {
+              animation: `${pulse} 1s infinite alternate`,
+            },
+          })}
+        >
+          Welcome to Plant Wiki
+        </h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
 
