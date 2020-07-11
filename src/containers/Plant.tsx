@@ -12,6 +12,13 @@ const Data = ({ plant }: { plant: PlantType }) => {
       <h1 className="title">{plant.scientific_name}</h1>
       <h2>aka {plant.common_name}</h2>
       <p>class: {plant.class?.name ?? ""}</p>
+      {plant.images?.map((image, idx) => (
+        <img
+          key={image.url}
+          src={image.url}
+          alt={`${plant.scientific_name} Image ${idx + 1}`}
+        />
+      ))}
     </>
   );
 };

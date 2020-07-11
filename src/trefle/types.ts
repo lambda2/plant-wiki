@@ -56,6 +56,7 @@ export type Plant = {
   link: string;
   slug: string;
   native_status: string;
+  images: { url: string }[];
   class?: Class;
 };
 
