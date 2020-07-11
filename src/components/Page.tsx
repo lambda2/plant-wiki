@@ -21,6 +21,7 @@ const Page = ({ children }: PageProps) => {
         body {
           margin: 0;
           padding: 0;
+          font-family: Roboto Mono;
           height: 100vh;
         }
       `}</style>
