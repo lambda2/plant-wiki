@@ -46,3 +46,15 @@ export type Plant = {
   slug: string;
   native_status: string;
 };
+
+export type AllSpecies = Omit<Species, "native_status">[];
+
+export type Species = {
+  id: number;
+  complete_data: boolean;
+  common_name: string;
+  scientific_name: string;
+  link: string;
+  slug: string;
+  native_status: string;
+};
