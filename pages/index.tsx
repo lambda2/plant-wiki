@@ -35,7 +35,7 @@ const Home = ({ plants }: HomeProps) => {
         <p className="description">Get started by browsing some Subkingdoms</p>
 
         {plants.map((plant) => (
-          <Link key={`Plant__${plant.slug}`} href={`/${plant.id}`}>
+          <Link key={`Plant__${plant.slug}`} href="/[id]" as={`/${plant.id}`}>
             <div>
               <span>{plant.common_name}</span>{" "}
               <span>{plant.scientific_name}</span>
