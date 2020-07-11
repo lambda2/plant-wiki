@@ -11,8 +11,10 @@
     "axios": "^0.19.2",
     "next": "9.4.4",
     "nookies": "^2.3.2",
+    "otion": "^0.3.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-otion": "^0.3.2",
     "react-query": "^2.4.13"
   },
   "devDependencies": {
