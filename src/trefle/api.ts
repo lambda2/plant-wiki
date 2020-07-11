@@ -10,6 +10,7 @@ import {
   Subkingdom,
   Species,
   Plant,
+  AllPlantsParams,
 } from "./types";
 
 export const getAllKingdoms = (token: string) =>
@@ -32,9 +33,9 @@ export const getSubkingdom = async (id: number, token: string) =>
     params: { token },
   });
 
-export const getAllPlants = async (token: string) =>
+export const getAllPlants = async (token: string, params?: AllPlantsParams) =>
   axios.get<AllPlants>(`${baseURL}/plants`, {
-    params: { token },
+    params: { token, ...params },
   });
 
 export const getPlant = async (id: number, token: string) =>

@@ -44,6 +44,10 @@ export type Class = {
 
 export type AllPlants = Omit<Plant, "native_status">[];
 
+export type AllPlantsParams = {
+  q?: string;
+};
+
 export type Plant = {
   id: number;
   complete_data: boolean;

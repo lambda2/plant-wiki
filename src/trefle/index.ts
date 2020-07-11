@@ -32,8 +32,13 @@ export const fetchSubkingdom = async (_key: string, id: number) => {
   );
 };
 
-export const fetchAllPlants = async (_key: string) => {
-  return handleRequest<types.AllPlants>((token) => trefle.getAllPlants(token));
+export const fetchAllPlants = async (
+  _key: string,
+  params?: types.AllPlantsParams
+) => {
+  return handleRequest<types.AllPlants>((token) =>
+    trefle.getAllPlants(token, params)
+  );
 };
 
 export const fetchPlant = async (_key: string, id: number) => {

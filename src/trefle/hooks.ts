@@ -7,6 +7,7 @@ import {
   fetchAllPlants,
   fetchPlant,
 } from "./index";
+import { AllPlantsParams } from "./types";
 
 export const useAllKingdoms = () => {
   const info = useQuery(["kingdoms"], fetchAllKingdoms);
@@ -32,8 +33,8 @@ export const useAllSubkingdoms = () => {
   );
 };
 
-export const useAllPlants = () => {
-  const info = useQuery(["plants"], fetchAllPlants);
+export const useAllPlants = (params?: AllPlantsParams) => {
+  const info = useQuery(["plants", params], fetchAllPlants);
 
   return useMemo(
     () => ({
