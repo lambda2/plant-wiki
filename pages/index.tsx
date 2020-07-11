@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { css } from "otion";
 
 import { useState } from "react";
 
@@ -20,7 +21,7 @@ const Home = () => {
       </Head>
 
       <main>
-        <h1 className="title">Welcome to Plant Wiki</h1>
+        <h1 className={css({ color: "green" })}>Welcome to Plant Wiki</h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
 
