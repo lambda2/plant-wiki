@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useState } from "react";
 
 // Screens
-import Plants from "~/screens/Plants";
+import Plants from "~/containers/Plants";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";

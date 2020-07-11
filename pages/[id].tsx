@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 // Components
-import Plant from "~/screens/Plant";
+import Plant from "~/containers/Plant";
 
 const SinglePlantPage = () => {
   const router = useRouter();
