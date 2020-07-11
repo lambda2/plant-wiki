@@ -52,7 +52,7 @@ export type Plant = {
   link: string;
   slug: string;
   native_status: string;
-  class: Class;
+  class?: Class;
 };
 
 export type AllSpecies = Omit<Species, "native_status">[];
