@@ -14,7 +14,6 @@ import Page from "~/components/Page";
 import { AllPlantsParams } from "~/trefle";
 import Link from "next/link";
 import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
-import Navbar from "~/components/Navbar";
 
 const pulse = keyframes({
   from: { opacity: 1 },
@@ -33,7 +32,6 @@ const Home = () => {
       </Head>
 
       <Content>
-        <Navbar />
         <h1>Welcome to Plant Wiki</h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
