@@ -6,7 +6,6 @@ const Loading = () => {
 };
 
 const Data = ({ plant }: { plant: PlantType }) => {
-  console.log(plant);
   return (
     <>
       <h1 className="title">{plant.scientific_name}</h1>
