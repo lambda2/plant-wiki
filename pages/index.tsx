@@ -12,6 +12,9 @@ import Page from "~/components/Page";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";
+import Link from "next/link";
+import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
+import Navbar from "~/components/Navbar";
 
 const pulse = keyframes({
   from: { opacity: 1 },
@@ -30,29 +33,7 @@ const Home = () => {
       </Head>
 
       <Content>
-        <nav>
-          <ul
-            className={css({
-              display: "flex",
-              flexDirection: "row",
-              listStyle: "none",
-            })}
-          >
-            <li
-              className={css({
-                color: "blue",
-                marginRight: "1rem",
-                ":hover": {
-                  color: "red",
-                  animation: `${pulse} 3s infinite alternate`,
-                },
-              })}
-            >
-              Home
-            </li>
-            <li>Randomize</li>
-          </ul>
-        </nav>
+        <Navbar />
         <h1>Welcome to Plant Wiki</h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
