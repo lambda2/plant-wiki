@@ -35,6 +35,13 @@ export type DivisionClass = {
   link: string;
 };
 
+export type Class = {
+  id: number;
+  link: string;
+  name: string;
+  slug: string;
+};
+
 export type AllPlants = Omit<Plant, "native_status">[];
 
 export type Plant = {
@@ -45,6 +52,7 @@ export type Plant = {
   link: string;
   slug: string;
   native_status: string;
+  class: Class;
 };
 
 export type AllSpecies = Omit<Species, "native_status">[];

@@ -9,6 +9,8 @@ const Data = ({ plant }: { plant: PlantType }) => {
   return (
     <>
       <h1 className="title">{plant.scientific_name}</h1>
+      <h2>aka {plant.common_name}</h2>
+      <p>class: {plant.class.name}</p>
     </>
   );
 };
