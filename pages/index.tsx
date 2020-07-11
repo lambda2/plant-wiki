@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { keyframes } from "otion";
+import { css, keyframes } from "otion";
 
 import { useState } from "react";
 
@@ -30,6 +30,29 @@ const Home = () => {
       </Head>
 
       <Content>
+        <nav>
+          <ul
+            className={css({
+              display: "flex",
+              flexDirection: "row",
+              listStyle: "none",
+            })}
+          >
+            <li
+              className={css({
+                color: "blue",
+                marginRight: "1rem",
+                ":hover": {
+                  color: "red",
+                  animation: `${pulse} 3s infinite alternate`,
+                },
+              })}
+            >
+              Home
+            </li>
+            <li>Randomize</li>
+          </ul>
+        </nav>
         <h1>Welcome to Plant Wiki</h1>
 
         <p className="description">Get started by browsing some Subkingdoms</p>
