@@ -1,13 +1,10 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 
-// Utils
-import { getAllSpecies, AllSpecies } from "~/trefle";
-import { getToken } from "~/utils/token";
+import { fetchAllSpecies, AllSpecies } from "~/trefle";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const token = await getToken(context);
-  const species = await getAllSpecies(token);
+  const species = await fetchAllSpecies("");
 
   return {
     props: {

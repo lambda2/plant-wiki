@@ -26,3 +26,11 @@ export const getToken = async (context?: GetServerSidePropsContext) => {
 
   return token;
 };
+
+export const refreshToken = async (context?: GetServerSidePropsContext) => {
+  nookies.destroy(context, "token", {});
+
+  const token = await getToken();
+
+  return token;
+};

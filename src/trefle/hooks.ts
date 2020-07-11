@@ -1,24 +1,15 @@
 import { useMemo } from "react";
-import { useQuery, AnyQueryKey } from "react-query";
-
-import { getToken } from "~/utils/token";
+import { useQuery } from "react-query";
 
 import {
-  getAllSubkingdoms,
-  getAllKingdoms,
-  getAllPlants,
-  getPlant,
+  fetchAllSubkingdoms,
+  fetchAllKingdoms,
+  fetchAllPlants,
+  fetchPlant,
 } from "./index";
-import { AllKingdoms, AllSubkingdoms, AllPlants, Plant } from "./types";
 
 export const useAllKingdoms = () => {
-  const info = useQuery<AllKingdoms, AnyQueryKey>(["kingdoms"], async () => {
-    const token = await getToken();
-
-    const kingdoms = await getAllKingdoms(token);
-
-    return kingdoms;
-  });
+  const info = useQuery(["kingdoms"], fetchAllKingdoms);
 
   return useMemo(
     () => ({
@@ -30,16 +21,7 @@ export const useAllKingdoms = () => {
 };
 
 export const useAllSubkingdoms = () => {
-  const info = useQuery<AllSubkingdoms, AnyQueryKey>(
-    ["subkingdoms"],
-    async () => {
-      const token = await getToken();
-
-      const subkingdoms = await getAllSubkingdoms(token);
-
-      return subkingdoms;
-    }
-  );
+  const info = useQuery(["subkingdoms"], fetchAllSubkingdoms);
 
   return useMemo(
     () => ({
@@ -51,13 +33,7 @@ export const useAllSubkingdoms = () => {
 };
 
 export const useAllPlants = () => {
-  const info = useQuery<AllPlants, AnyQueryKey>(["plants"], async () => {
-    const token = await getToken();
-
-    const plants = await getAllPlants(token);
-
-    return plants;
-  });
+  const info = useQuery(["plants"], fetchAllPlants);
 
   return useMemo(
     () => ({
@@ -69,16 +45,7 @@ export const useAllPlants = () => {
 };
 
 export const usePlant = (plantId: number) => {
-  const info = useQuery<Plant, AnyQueryKey>(
-    ["plant", plantId],
-    async (key, id: number) => {
-      const token = await getToken();
-
-      const plant = await getPlant(id, token);
-
-      return plant;
-    }
-  );
+  const info = useQuery(["plant", plantId], fetchPlant);
 
   return useMemo(
     () => ({

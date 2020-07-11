@@ -1,13 +1,10 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 
-// Utils
-import { getAllSubkingdoms, AllSubkingdoms } from "~/trefle";
-import { getToken } from "~/utils/token";
+import { fetchAllSubkingdoms, AllSubkingdoms } from "~/trefle";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const token = await getToken(context);
-  const subkingdoms = await getAllSubkingdoms(token);
+  const subkingdoms = await fetchAllSubkingdoms("");
 
   return {
     props: {
