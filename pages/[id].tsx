@@ -1,28 +1,13 @@
 import Head from "next/head";
-import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 
-import { getToken } from "~/utils/token";
+// Components
+import Plant from "~/components/Plant";
 
-import { getPlant, Plant } from "~/trefle";
+const SinglePlantPage = () => {
+  const router = useRouter();
+  const id = router.query.id as any;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params.id as any;
-
-  const token = await getToken(context);
-  const plant = await getPlant(id, token);
-
-  return {
-    props: {
-      plant,
-    },
-  };
-};
-
-interface SinglePlantPageProps {
-  plant: Plant;
-}
-
-const SinglePlantPage = ({ plant }: SinglePlantPageProps) => {
   return (
     <div className="container">
       <Head>
@@ -31,7 +16,7 @@ const SinglePlantPage = ({ plant }: SinglePlantPageProps) => {
       </Head>
 
       <main>
-        <h1 className="title">{plant.scientific_name}</h1>
+        <Plant id={id} />
       </main>
     </div>
   );

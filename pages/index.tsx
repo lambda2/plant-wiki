@@ -1,27 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
-import { GetServerSideProps } from "next";
 
-// Utils
-import { getAllPlants, AllPlants } from "~/trefle";
-import { getToken } from "~/utils/token";
+// Components
+import Plants from "~/components/Plants";
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const token = await getToken(context);
-  const plants = await getAllPlants(token);
-
-  return {
-    props: {
-      plants,
-    },
-  };
-};
-
-interface HomeProps {
-  plants: AllPlants;
-}
-
-const Home = ({ plants }: HomeProps) => {
+const Home = () => {
   return (
     <div className="container">
       <Head>
@@ -34,14 +16,7 @@ const Home = ({ plants }: HomeProps) => {
 
         <p className="description">Get started by browsing some Subkingdoms</p>
 
-        {plants.map((plant) => (
-          <Link key={`Plant__${plant.slug}`} href="/[id]" as={`/${plant.id}`}>
-            <div>
-              <span>{plant.common_name}</span>{" "}
-              <span>{plant.scientific_name}</span>
-            </div>
-          </Link>
-        ))}
+        <Plants />
       </main>
 
       <style jsx global>{`
