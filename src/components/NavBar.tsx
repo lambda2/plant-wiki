@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className={css({ paddingLeft: 16, paddingRight: 16 })}>
       <ul
         className={css({
           display: "flex",

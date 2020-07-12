@@ -1,21 +1,31 @@
+import { useCallback, useMemo } from "react";
 import Head from "next/head";
-
-import { useState } from "react";
+import { css } from "otion";
 
 // Containers
 import Plants from "~/containers/Plants";
 
 // Components
 import Content from "~/components/Content";
-import Page from "~/components/Page";
 import NavBar from "~/components/NavBar";
+import Page from "~/components/Page";
+import Search from "~/components/Search";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";
+import { useRouter } from "next/router";
 
 const Home = () => {
-  const [search, setSearch] = useState("");
-  const [params, setParams] = useState<AllPlantsParams>();
+  const router = useRouter();
+
+  const handleSearchChange = useCallback(
+    (q: string) => router.push(`/?q=${q}`),
+    [router]
+  );
+
+  const params: AllPlantsParams = useMemo(() => {
+    return router?.query ?? {};
+  }, [router.query]);
 
   return (
     <Page>
@@ -27,32 +37,15 @@ const Home = () => {
       <NavBar />
 
       <Content>
-        <h1
-          className={css({
-            display: "flex",
-            justifyContent: "center",
-          })}
-        >
-          Welcome to Plant Wiki
-        </h1>
-        <p
-          className={css({
-            display: "flex",
-            justifyContent: "center",
-          })}
-        >
-          Get started by browsing some Subkingdoms
+        <h1 className={css({ alignSelf: "center" })}>Plant Wiki</h1>
+        <p className={css({ alignSelf: "center", color: "#9B9B9B" })}>
+          Explore 389,014 plants including 8085 with detailed data, and 194507
+          synonyms!
         </p>
-        <input
-          type="text"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              setParams({ q: search });
-            }
-          }}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+
+        <Search defaultValue={params.q} onChange={handleSearchChange} />
+
+        <div className={css({ height: 64, width: "100%" })} />
 
         <Plants params={params} />
       </Content>
