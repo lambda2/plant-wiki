@@ -16,15 +16,6 @@ const Page = ({ children }: PageProps) => {
       })}
     >
       {children}
-      <style jsx global>{`
-        html,
-        body {
-          margin: 0;
-          padding: 0;
-          font-family: Roboto Mono;
-          height: 100vh;
-        }
-      `}</style>
     </div>
   );
 };

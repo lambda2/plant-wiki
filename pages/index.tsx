@@ -1,26 +1,31 @@
+import { useCallback, useMemo } from "react";
 import Head from "next/head";
-import { keyframes } from "otion";
-
-import { useState } from "react";
+import { css } from "otion";
 
 // Containers
 import Plants from "~/containers/Plants";
 
 // Components
 import Content from "~/components/Content";
+import NavBar from "~/components/NavBar";
 import Page from "~/components/Page";
+import Search from "~/components/Search";
 
 // Trefle
 import { AllPlantsParams } from "~/trefle";
-
-const pulse = keyframes({
-  from: { opacity: 1 },
-  to: { opacity: 0 },
-});
+import { useRouter } from "next/router";
 
 const Home = () => {
-  const [search, setSearch] = useState("");
-  const [params, setParams] = useState<AllPlantsParams>();
+  const router = useRouter();
+
+  const handleSearchChange = useCallback(
+    (q: string) => router.push(`/?q=${q}`),
+    [router]
+  );
+
+  const params: AllPlantsParams = useMemo(() => {
+    return router?.query ?? {};
+  }, [router.query]);
 
   return (
     <Page>
@@ -29,21 +34,18 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <NavBar />
+
       <Content>
-        <h1>Welcome to Plant Wiki</h1>
+        <h1 className={css({ alignSelf: "center" })}>Plant Wiki</h1>
+        <p className={css({ alignSelf: "center", color: "#9B9B9B" })}>
+          Explore 389,014 plants including 8085 with detailed data, and 194507
+          synonyms!
+        </p>
 
-        <p className="description">Get started by browsing some Subkingdoms</p>
+        <Search defaultValue={params.q} onChange={handleSearchChange} />
 
-        <input
-          type="text"
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              setParams({ q: search });
-            }
-          }}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        <div className={css({ height: 64, width: "100%" })} />
 
         <Plants params={params} />
       </Content>
