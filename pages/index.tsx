@@ -45,7 +45,7 @@ const Home = () => {
             paddingBottom: 8,
           })}
         >
-          Explore 389,014 plants including 8085 with detailed data, and 194507
+          Explore 841,534 plants including 5,109 with detailed data, and 420,767
           synonyms!
         </p>
 
