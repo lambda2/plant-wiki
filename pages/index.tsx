@@ -14,6 +14,7 @@ import Page from "~/components/Page";
 import { AllPlantsParams } from "~/trefle";
 import Link from "next/link";
 import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
+import { authEndpoint } from "~/constants";
 
 const pulse = keyframes({
   from: { opacity: 1 },
@@ -32,10 +33,22 @@ const Home = () => {
       </Head>
 
       <Content>
-        <h1>Welcome to Plant Wiki</h1>
-
-        <p className="description">Get started by browsing some Subkingdoms</p>
-
+        <h1
+          className={css({
+            display: "flex",
+            justifyContent: "center",
+          })}
+        >
+          Welcome to Plant Wiki
+        </h1>
+        <p
+          className={css({
+            display: "flex",
+            justifyContent: "center",
+          })}
+        >
+          Get started by browsing some Subkingdoms
+        </p>
         <input
           type="text"
           onKeyDown={(e) => {
