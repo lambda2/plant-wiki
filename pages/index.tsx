@@ -37,7 +37,14 @@ const Home = () => {
       <NavBar />
 
       <Content>
-        <h1 className={css({ alignSelf: "center" })}>Plant Wiki</h1>
+        <h1
+          className={css({
+            alignSelf: "center",
+            margin: 0,
+          })}
+        >
+          Plant Wiki
+        </h1>
         <p
           className={css({
             alignSelf: "center",

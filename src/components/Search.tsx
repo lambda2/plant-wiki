@@ -41,9 +41,14 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
     <div
       className={css({
         display: "flex",
+        alignSelf: "center",
         width: "100%",
         maxWidth: 1260,
-        alignSelf: "center",
+        "@media": {
+          "(max-width: 768px)": {
+            flexDirection: "column",
+          },
+        },
       })}
     >
       <input
@@ -53,6 +58,11 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
           border: "1px solid #9B9B9B90",
           borderTopLeftRadius: 4,
           borderBottomLeftRadius: 4,
+          "@media": {
+            "(max-width: 768px)": {
+              borderRadius: 4,
+            },
+          },
         })}
         type="text"
         placeholder="Search Scientific or Common Name"
@@ -70,6 +80,14 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
           borderLeftWidth: 0,
           borderTopRightRadius: 4,
           borderBottomRightRadius: 4,
+          "@media": {
+            "(max-width: 768px)": {
+              padding: "16px 0",
+              marginTop: 8,
+              borderRadius: 4,
+              borderLeftWidth: 1,
+            },
+          },
         })}
         onClick={handleButtonClick}
       >
