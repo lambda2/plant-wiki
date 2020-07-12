@@ -41,22 +41,16 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
     <div
       className={css({
         display: "flex",
-        paddingRight: 128,
-        paddingLeft: 128,
-        "@media": {
-          "(max-width: 1024px)": {
-            gridTemplateColumns: "repeat(1, auto)",
-            paddingLeft: 16,
-            paddingRight: 16,
-          },
-        },
+        width: "100%",
+        maxWidth: 1260,
+        alignSelf: "center",
       })}
     >
       <input
         className={css({
           padding: 16,
           flex: 1,
-          border: "1px solid #9B9B9B",
+          border: "1px solid #9B9B9B90",
           borderTopLeftRadius: 4,
           borderBottomLeftRadius: 4,
         })}
@@ -70,14 +64,14 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
         className={css({
           backgroundColor: "#A5C577",
           padding: "0 32px",
-          border: "1px solid #9B9B9B",
+          border: "1px solid #9B9B9B90",
           borderLeftWidth: 0,
           borderTopRightRadius: 4,
           borderBottomRightRadius: 4,
         })}
         onClick={handleButtonClick}
       >
-        Search
+        SEARCH
       </button>
     </div>
   );

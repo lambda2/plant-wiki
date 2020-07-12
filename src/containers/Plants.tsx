@@ -16,18 +16,18 @@ const Data = ({ plants }: { plants: AllPlants }) => {
         gridTemplateColumns: "repeat(3, auto)",
         gridColumnGap: 32,
         gridRowGap: 32,
-        paddingLeft: 32,
-        paddingRight: 32,
+        width: "100%",
+        maxWidth: 1260,
+        alignSelf: "center",
         "@media": {
-          "(max-width: 1024px)": {
+          "(max-width: 1260px)": {
             gridTemplateColumns: "repeat(2, auto)",
-            paddingLeft: 16,
-            paddingRight: 16,
+            gridColumnGap: 24,
+            gridRowGap: 24,
           },
           "(max-width: 768px)": {
             gridTemplateColumns: "repeat(1, auto)",
-            paddingLeft: 16,
-            paddingRight: 16,
+            gridRowGap: 16,
           },
         },
       })}
@@ -37,7 +37,7 @@ const Data = ({ plants }: { plants: AllPlants }) => {
           <div
             className={css({
               padding: "8px 16px",
-              border: "1px solid #9B9B9B",
+              border: "1px solid #9B9B9B75",
               borderRadius: 4,
               boxShadow:
                 "0 4px 6px 1px #9B9B9B20, 0 1px 7px 1px #9B9B9B20, 0 2px 2px -1px #9B9B9B20",

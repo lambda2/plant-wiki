@@ -38,7 +38,13 @@ const Home = () => {
 
       <Content>
         <h1 className={css({ alignSelf: "center" })}>Plant Wiki</h1>
-        <p className={css({ alignSelf: "center", color: "#9B9B9B" })}>
+        <p
+          className={css({
+            alignSelf: "center",
+            color: "#9B9B9B",
+            paddingBottom: 8,
+          })}
+        >
           Explore 389,014 plants including 8085 with detailed data, and 194507
           synonyms!
         </p>
