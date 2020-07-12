@@ -3,10 +3,7 @@ import { css } from "otion";
 
 import { AllPlants, AllPlantsParams } from "~/trefle";
 import { useAllPlants } from "~/trefle/hooks";
-
-const Loading = () => {
-  return <div className={css({ padding: "0 16px" })}>loading...</div>;
-};
+import Loader from "~/components/Loader";
 
 const Data = ({ plants }: { plants: AllPlants }) => {
   return (
@@ -88,7 +85,7 @@ interface PlantsProps {
 const Plants = ({ params }: PlantsProps) => {
   const { plants } = useAllPlants(params);
 
-  return plants ? <Data plants={plants} /> : <Loading />;
+  return plants ? <Data plants={plants} /> : <Loader />;
 };
 
 export default Plants;
