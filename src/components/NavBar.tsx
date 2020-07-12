@@ -9,6 +9,8 @@ const NavBar = () => {
           display: "flex",
           flexDirection: "row",
           listStyle: "none",
+          justifyContent: "space-between",
+          padding: "0",
         })}
       >
         <li>
@@ -19,6 +21,7 @@ const NavBar = () => {
                 height: "20px",
                 width: "50px",
                 backgroundRepeat: "no-repeat",
+                flex: "1",
               })}
             ></div>
           </Link>

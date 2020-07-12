@@ -27,10 +27,22 @@ const Home = () => {
       <NavBar />
 
       <Content>
-        <h1>Welcome to Plant Wiki</h1>
-
-        <p className="description">Get started by browsing some Subkingdoms</p>
-
+        <h1
+          className={css({
+            display: "flex",
+            justifyContent: "center",
+          })}
+        >
+          Welcome to Plant Wiki
+        </h1>
+        <p
+          className={css({
+            display: "flex",
+            justifyContent: "center",
+          })}
+        >
+          Get started by browsing some Subkingdoms
+        </p>
         <input
           type="text"
           onKeyDown={(e) => {
