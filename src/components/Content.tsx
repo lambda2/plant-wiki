@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 import { css } from "otion";
-import Navbar from "./Navbar";
 
 export interface ContentProps {
   children?: ReactNode;
@@ -15,7 +14,6 @@ const Content = ({ children }: ContentProps) => {
         padding: 16,
       })}
     >
-      <Navbar />
       {children}
     </main>
   );
