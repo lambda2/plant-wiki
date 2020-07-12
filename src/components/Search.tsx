@@ -1,4 +1,10 @@
-import { useCallback, useState, KeyboardEvent, useEffect } from "react";
+import {
+  useCallback,
+  useState,
+  KeyboardEvent,
+  useEffect,
+  ChangeEvent,
+} from "react";
 import { css } from "otion";
 
 interface SearchProps {
@@ -18,13 +24,18 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
     [onChange, search]
   );
 
-  useEffect(() => {
-    setSearch(defaultValue);
-  }, [defaultValue]);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
+    []
+  );
 
   const handleButtonClick = useCallback(() => {
     onChange(search);
   }, [onChange, search]);
+
+  useEffect(() => {
+    setSearch(defaultValue);
+  }, [defaultValue]);
 
   return (
     <div
@@ -32,34 +43,35 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
         display: "flex",
         paddingRight: 128,
         paddingLeft: 128,
+        "@media": {
+          "(max-width: 1024px)": {
+            gridTemplateColumns: "repeat(1, auto)",
+            paddingLeft: 16,
+            paddingRight: 16,
+          },
+        },
       })}
     >
-      <div
+      <input
         className={css({
-          display: "flex",
-          border: 1,
-          borderStyle: "solid",
-          borderColor: "#9B9B9B",
+          padding: 16,
+          flex: 1,
+          border: "1px solid #9B9B9B",
           borderTopLeftRadius: 4,
           borderBottomLeftRadius: 4,
-          overflow: "hidden",
-          flex: 1,
         })}
-      >
-        <input
-          className={css({ padding: 8, border: 0, flex: 1 })}
-          type="text"
-          onKeyDown={handlePressEnter}
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+        type="text"
+        onKeyDown={handlePressEnter}
+        value={search}
+        onChange={handleChange}
+      />
+
       <button
         className={css({
           backgroundColor: "#A5C577",
-          paddingLeft: 16,
-          paddingRight: 16,
-          border: 0,
+          padding: "0 32px",
+          border: "1px solid #9B9B9B",
+          borderLeftWidth: 0,
           borderTopRightRadius: 4,
           borderBottomRightRadius: 4,
         })}

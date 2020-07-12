@@ -11,7 +11,6 @@ const Page = ({ children }: PageProps) => {
       className={css({
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
         width: "100%",
       })}
     >
