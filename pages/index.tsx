@@ -19,7 +19,7 @@ const Home = () => {
   const router = useRouter();
 
   const handleSearchChange = useCallback(
-    (q: string) => router.push(`/?q=${q}`),
+    (q: string) => router.push(q ? `/?q=${q}` : `/`),
     [router]
   );
 
