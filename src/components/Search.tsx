@@ -55,14 +55,16 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
           borderBottomLeftRadius: 4,
         })}
         type="text"
-        onKeyDown={handlePressEnter}
+        placeholder="Search Scientific or Common Name"
         value={search}
         onChange={handleChange}
+        onKeyDown={handlePressEnter}
       />
 
       <button
         className={css({
           backgroundColor: "#A5C577",
+          color: "#fff",
           padding: "0 32px",
           border: "1px solid #9B9B9B90",
           borderLeftWidth: 0,
