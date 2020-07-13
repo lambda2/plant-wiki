@@ -9,6 +9,9 @@ const NavBar = () => {
       className={css({
         paddingLeft: 16,
         paddingRight: 16,
+        position: "sticky",
+        top: 0,
+        background: "#ffffff",
       })}
     >
       <ul
