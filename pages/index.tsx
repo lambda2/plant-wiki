@@ -34,8 +34,6 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NavBar />
-
       <Content>
         <h1
           className={css({

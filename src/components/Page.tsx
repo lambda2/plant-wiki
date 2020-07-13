@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 import { css } from "otion";
 
+import NavBar from "~/components/NavBar";
+
 export interface PageProps {
   children: ReactNode;
 }
@@ -14,6 +16,7 @@ const Page = ({ children }: PageProps) => {
         width: "100%",
       })}
     >
+      <NavBar />
       {children}
     </div>
   );
