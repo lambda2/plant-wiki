@@ -1,6 +1,7 @@
 import { css } from "otion";
 import Link from "next/link";
 import { authEndpoint } from "~/constants";
+import { NONAME } from "dns";
 
 const NavBar = () => {
   return (
@@ -16,6 +17,7 @@ const NavBar = () => {
           flexDirection: "row",
           listStyle: "none",
           justifyContent: "space-between",
+          alignItems: "center",
           padding: "0",
         })}
       >
@@ -28,12 +30,34 @@ const NavBar = () => {
                 width: "45px",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "contain",
-                flex: "1",
+                ":hover": {
+                  cursor: "pointer",
+                },
               })}
             ></div>
           </Link>
         </li>
-        <li>
+        <li
+          className={css({
+            display: "flex",
+            flexDirection: "row",
+            alignSelf: "center",
+          })}
+        >
+          <a
+            className={css({
+              textDecoration: "none",
+              color: "#A5C577",
+              paddingRight: "16px",
+              textAlign: "center",
+            })}
+            href="https:/trefle.io"
+            target="_blank"
+          >
+            powered by
+            <br />
+            trefle.io
+          </a>
           <a href="https://github.com/10factory/plant-wiki" target="_blank">
             <div
               className={css({
@@ -42,7 +66,6 @@ const NavBar = () => {
                 width: "30px",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "contain",
-                flex: "1",
               })}
             ></div>
           </a>
