@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { css } from "otion";
 
 import NavBar from "~/components/NavBar";
+import Footer from "~/components/Footer";
 
 export interface PageProps {
   children: ReactNode;
@@ -18,6 +19,7 @@ const Page = ({ children }: PageProps) => {
     >
       <NavBar />
       {children}
+      <Footer />
     </div>
   );
 };
