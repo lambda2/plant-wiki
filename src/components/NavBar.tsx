@@ -5,24 +5,29 @@ const NavBar = () => {
   return (
     <nav
       className={css({
-        paddingLeft: 16,
-        paddingRight: 16,
+        display: "flex",
+        justifyContent: "space-between",
+        width: 1260,
         position: "sticky",
-        top: 0,
         background: "#ffffff",
+        alignSelf: "center",
+        "@media": {
+          "(max-width: 1260px)": {
+            padding: "0 16px",
+            width: "auto",
+            alignSelf: "stretch",
+          },
+        },
       })}
     >
       <ul
         className={css({
-          display: "flex",
-          flexDirection: "row",
           listStyle: "none",
-          justifyContent: "space-between",
           alignItems: "center",
-          padding: "0",
+          padding: 0,
         })}
       >
-        <li>
+        <li className={css({ display: "flex", alignItems: "center" })}>
           <Link href="/">
             <div
               className={css({
@@ -37,32 +42,35 @@ const NavBar = () => {
               })}
             ></div>
           </Link>
-        </li>
-        <li
-          className={css({
-            display: "flex",
-            flexDirection: "row",
-            alignSelf: "center",
-          })}
-        >
           <a
             className={css({
               textDecoration: "none",
               color: "#A5C577",
-              paddingRight: "16px",
+              paddingLeft: "16px",
               textAlign: "center",
             })}
             href="https:/trefle.io"
             target="_blank"
           >
-            powered by
-            <br />
-            trefle.io
+            powered by{" "}
+            <span className={css({ textDecoration: "underline" })}>
+              trefle.io
+            </span>
           </a>
+        </li>
+      </ul>
+      <ul
+        className={css({
+          listStyle: "none",
+          alignItems: "center",
+          padding: 0,
+        })}
+      >
+        <li>
           <a href="https://github.com/10factory/plant-wiki" target="_blank">
             <div
               className={css({
-                backgroundImage: "url(/github-branch.svg)",
+                backgroundImage: "url(/github.svg)",
                 height: "30px",
                 width: "30px",
                 backgroundRepeat: "no-repeat",
