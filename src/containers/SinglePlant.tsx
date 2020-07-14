@@ -22,7 +22,9 @@ const Plant = ({ id }: PlantProps) => {
   }
 
   return (
-    <div className={css({ maxWidth: 1260, alignSelf: "center" })}>
+    <div
+      className={css({ maxWidth: 1260, width: "100%", alignSelf: "center" })}
+    >
       <h1 className="title">{plant.scientific_name}</h1>
       <h2>aka {plant.common_name}</h2>
       <p>class: {plant.class?.name ?? ""}</p>
