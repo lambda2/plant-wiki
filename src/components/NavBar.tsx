@@ -49,7 +49,7 @@ const NavBar = () => {
               paddingLeft: "16px",
               textAlign: "center",
             })}
-            href="https:/trefle.io"
+            href="https://trefle.io"
             target="_blank"
           >
             powered by{" "}
