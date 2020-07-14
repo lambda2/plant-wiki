@@ -1,7 +1,5 @@
 import { css } from "otion";
 import Link from "next/link";
-import { authEndpoint } from "~/constants";
-import { NONAME } from "dns";
 
 const NavBar = () => {
   return (
