@@ -1,6 +1,7 @@
 import { Plant as PlantType } from "~/trefle";
 import { usePlant } from "~/trefle/hooks";
 import { css } from "otion";
+import Loader from "~/components/Loader";
 
 const Loading = () => {
   return <div>loading...</div>;
@@ -29,7 +30,11 @@ interface PlantProps {
 }
 
 const Plant = ({ id }: PlantProps) => {
-  const { plant } = usePlant(id);
+  const { plant, isLoading } = usePlant(id);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return <div>{plant ? <Data plant={plant} /> : <Loading />}</div>;
 };

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 // Container
-import Plant from "~/containers/Plant";
+import SinglePlant from "~/containers/SinglePlant";
 
 // Components
 import Content from "~/components/Content";
@@ -20,7 +20,7 @@ const SinglePlantPage = () => {
       </Head>
 
       <Content>
-        <Plant id={id} />
+        <SinglePlant id={id} />
       </Content>
     </Page>
   );

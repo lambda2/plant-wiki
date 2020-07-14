@@ -7,6 +7,9 @@ import {
 } from "react";
 import { css } from "otion";
 
+// Components
+import Button from "~/components/Button";
+
 interface SearchProps {
   defaultValue?: string;
   onChange?: (q: string) => void;
@@ -71,15 +74,11 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
         onKeyDown={handlePressEnter}
       />
 
-      <button
+      <Button
         className={css({
-          backgroundColor: "#A5C577",
-          color: "#fff",
-          padding: "0 32px",
           border: "1px solid #9B9B9B90",
           borderLeftWidth: 0,
-          borderTopRightRadius: 4,
-          borderBottomRightRadius: 4,
+          borderRadius: "0 4px 4px 0",
           "@media": {
             "(max-width: 768px)": {
               padding: "16px 0",
@@ -92,7 +91,7 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
         onClick={handleButtonClick}
       >
         SEARCH
-      </button>
+      </Button>
     </div>
   );
 };
