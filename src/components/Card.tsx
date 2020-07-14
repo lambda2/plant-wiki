@@ -14,7 +14,6 @@ const Card = ({ children }: CardProps) => {
         borderRadius: 4,
         boxShadow:
           "0 4px 6px 1px #9B9B9B20, 0 1px 7px 1px #9B9B9B20, 0 2px 2px -1px #9B9B9B20",
-        cursor: "pointer",
         transition: "all 0.3s ease-in-out",
         ":hover": {
           boxShadow:
