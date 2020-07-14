@@ -56,7 +56,7 @@ const Home = () => {
 
         <Search defaultValue={params.q} onChange={handleSearchChange} />
 
-        <div className={css({ height: 64, width: "100%" })} />
+        <div className={css({ height: 32, width: "100%" })} />
 
         <Plants params={params} />
       </Content>
