@@ -81,7 +81,6 @@ const Search = ({ defaultValue = "", onChange = () => {} }: SearchProps) => {
           borderRadius: "0 4px 4px 0",
           "@media": {
             "(max-width: 768px)": {
-              padding: "16px 0",
               marginTop: 8,
               borderRadius: 4,
               borderLeftWidth: 1,

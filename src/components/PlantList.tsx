@@ -18,7 +18,16 @@ const PlantList = ({ plants }: { plants: AllPlants }) => {
               Scientific:
             </span>
             <Link href={`/?q=${plant.scientific_name}`}>
-              <a className={css({ textTransform: "uppercase" })}>
+              <a
+                className={css({
+                  textTransform: "uppercase",
+                  color: "#000000",
+                  ":hover": {
+                    cursor: "pointer",
+                    color: "#6D9837",
+                  },
+                })}
+              >
                 {plant.scientific_name}
               </a>
             </Link>
@@ -29,7 +38,16 @@ const PlantList = ({ plants }: { plants: AllPlants }) => {
             </span>
             {plant.common_name ? (
               <Link href={`/?q=${plant.common_name}`}>
-                <a className={css({ textTransform: "uppercase" })}>
+                <a
+                  className={css({
+                    textTransform: "uppercase",
+                    color: "#000000",
+                    ":hover": {
+                      cursor: "pointer",
+                      color: "#A5C577",
+                    },
+                  })}
+                >
                   {plant.common_name}
                 </a>
               </Link>
