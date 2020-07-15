@@ -12,6 +12,7 @@ const Content = ({ children }: ContentProps) => {
         display: "flex",
         flexDirection: "column",
         padding: 16,
+        minHeight: "81vh",
       })}
     >
       {children}

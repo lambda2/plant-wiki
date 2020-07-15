@@ -5,35 +5,67 @@ const Footer = () => {
   return (
     <footer
       className={css({
-        position: "sticky",
-        bottom: "0",
-        backgroundColor: "#9b9b9b30",
-        color: "#000000",
-        padding: 36,
+        display: "flex",
+        justifyContent: "center",
+        width: "100vw",
+        background: "#9B9B9B20",
+        alignSelf: "center",
+        padding: "16px 0",
+        position: "relative",
+        bottom: 0,
+        "@media": {
+          "(max-width: 1260px)": {
+            width: "auto",
+            alignSelf: "stretch",
+          },
+        },
       })}
     >
-      <div
+      <ul
         className={css({
+          listStyle: "none",
           display: "flex",
+          padding: 0,
         })}
       >
-        <div
+        <li
           className={css({
-            paddingRight: 16,
+            display: "flex",
           })}
         >
-          10factory LLC © 2020
-        </div>
-        <a
+          <div
+            className={css({
+              paddingRight: 16,
+            })}
+          >
+            10factory LLC © 2020
+          </div>
+          <a
+            className={css({
+              textDecoration: "none",
+            })}
+            href="https://youtu.be/i9BRbtIgipQ"
+            target="_blank"
+          >
+            🌱
+          </a>
+        </li>
+        <li
           className={css({
-            textDecoration: "none",
+            paddingLeft: 12,
           })}
-          href="https://youtu.be/i9BRbtIgipQ"
-          target="_blank"
         >
-          🌱
-        </a>
-      </div>
+          <a
+            className={css({
+              color: "#000000",
+            })}
+            href="mailto:plants@10factory.com"
+            target="_blank"
+          >
+            contact
+          </a>
+        </li>
+      </ul>
     </footer>
   );
 };
