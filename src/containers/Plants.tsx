@@ -24,6 +24,17 @@ const Plants = ({ params }: PlantsProps) => {
   if (plants.length === 0 || !plants || isError) {
     return (
       <span className={css({ alignSelf: "center" })}>
+        <span
+          className={css({
+            backgroundImage: "url(/oh-no.svg)",
+            display: "flex",
+            margin: "32px auto",
+            height: "70px",
+            width: "70px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          })}
+        ></span>
         No Results :( 🍀 Better Luck Next Time
       </span>
     );
