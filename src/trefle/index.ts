@@ -42,7 +42,7 @@ export const fetchAllPlants = async (
 };
 
 export const fetchPlant = async (_key: string, id: number) => {
-  return handleRequest<types.Plant>((token) => trefle.getPlant(id, token));
+  return handleRequest<types.Resource<types.Plant>>((token) => trefle.getPlant(id, token));
 };
 
 export const fetchAllSpecies = async (_key: string) => {
@@ -52,7 +52,7 @@ export const fetchAllSpecies = async (_key: string) => {
 };
 
 export const fetchSpecies = async (_key: string, id: number) => {
-  return handleRequest<types.Species>((token) => trefle.getSpecies(id, token));
+  return handleRequest<types.Resource<types.Species>>((token) => trefle.getSpecies(id, token));
 };
 
 async function handleRequest<T>(

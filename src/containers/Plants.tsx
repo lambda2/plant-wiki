@@ -21,7 +21,7 @@ const Plants = ({ params }: PlantsProps) => {
     return <Loader />;
   }
 
-  if (plants.length === 0 || !plants || isError) {
+  if (!plants?.meta?.total || !plants || isError) {
     return (
       <span className={css({ alignSelf: "center" })}>
         No Results :( 🍀 Better Luck Next Time
@@ -29,10 +29,10 @@ const Plants = ({ params }: PlantsProps) => {
     );
   }
 
-  return plants.length > 1 ? (
+  return plants.meta.total > 1 ? (
     <PlantList plants={plants} />
   ) : (
-    <SinglePlant id={plants[0].id} />
+    <SinglePlant id={plants.data[0].id} />
   );
 };
 

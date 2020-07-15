@@ -1,4 +1,25 @@
-export type AllKingdoms = Omit<Kingdom, "link">[];
+export type Collection<T> = {
+  data: T[],
+  links: {
+    first?: string
+    prev?: string
+    last?: string
+    next?: string
+    self?: string
+  }
+  meta: {
+    total: number
+  }
+};
+
+export type Resource<T> = {
+  data: T,
+  meta: {
+    last_modified?: string
+  }
+};
+
+export type AllKingdoms = Collection<Omit<Kingdom, "link">>;
 
 export type Kingdom = {
   id: number;
@@ -8,7 +29,7 @@ export type Kingdom = {
   subkingdoms: Omit<Subkingdom, "divisions" | "kingdom">[];
 };
 
-export type AllSubkingdoms = Omit<Subkingdom, "divisions" | "kingdom">[];
+export type AllSubkingdoms = Collection<Omit<Subkingdom, "divisions" | "kingdom">>;
 
 export type Subkingdom = {
   id: number;
@@ -42,7 +63,7 @@ export type Class = {
   slug: string;
 };
 
-export type AllPlants = Omit<Plant, "native_status">[];
+export type AllPlants = Collection<Omit<Plant, "native_status">>;
 
 export type AllPlantsParams = {
   q?: string;
@@ -60,7 +81,7 @@ export type Plant = {
   class?: Class;
 };
 
-export type AllSpecies = Omit<Species, "native_status">[];
+export type AllSpecies = Collection<Omit<Species, "native_status">>;
 
 export type Species = {
   id: number;

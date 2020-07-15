@@ -21,19 +21,21 @@ const Plant = ({ id }: PlantProps) => {
     return null;
   }
 
+  const { data } = plant
+
   return (
     <div
       className={css({ maxWidth: 1260, width: "100%", alignSelf: "center" })}
     >
-      <h1 className="title">{plant.scientific_name}</h1>
-      <h2>aka {plant.common_name}</h2>
-      <p>class: {plant.class?.name ?? ""}</p>
-      {plant.images?.map((image, idx) => (
+      <h1 className="title">{data.scientific_name}</h1>
+      <h2>aka {data.common_name}</h2>
+      <p>class: {data.class?.name ?? ""}</p>
+      {data.images?.map((image, idx) => (
         <img
           className={css({ maxWidth: "100%" })}
           key={image.url}
           src={image.url}
-          alt={`${plant.scientific_name} Image ${idx + 1}`}
+          alt={`${data.scientific_name} Image ${idx + 1}`}
         />
       ))}
     </div>

@@ -11,7 +11,7 @@ import Grid from "~/components/Grid";
 const PlantList = ({ plants }: { plants: AllPlants }) => {
   return (
     <Grid>
-      {plants.map((plant) => (
+      {plants.data.map((plant) => (
         <Card key={`Plant__${plant.slug}`}>
           <p>
             <span className={css({ color: "#A5C577", paddingRight: 8 })}>
